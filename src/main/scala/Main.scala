@@ -18,10 +18,13 @@ object Main {
     val t = new Thread {
       override def run = {
         try {
+          var i = 0
           while (true) {
-            output.write("hello\n".getBytes("UTF-8"))
+            output.write(("hello" + i + "\n").getBytes("UTF-8"))
             output.flush
             Thread.sleep(500)
+
+            i += 1
           }
         } catch {
           case e => e.printStackTrace
